@@ -1,0 +1,93 @@
+깃 설치
+git init
+  최초 한번만 실행, 해당 directory를 git repository로 사용하겠다라는 의미
+  .git이라는 숨김 폴더를 만들고, 그 폴더가 버전관리할 때 사용
+
+git add 파일이름(.을 쓰면 모든)
+  스테이지에 파일을 임시저장해줘(올려줘)
+
+git commit -m "메시지"
+  스테이지에 올라가있는 파일들을 영구 저장해줘
+
+  git commit -a
+    커밋하기 전에 모든 변경사항을 add 하고 commit 해줘
+    (untracked (새로만든파일) 상태인 파일은 해당옵션 적용 안됨)
+  
+  git commit -am '메시지'
+    -a옵션과 -m옵션을 동시에 사용
+  
+git log
+  로그(기록)을 보여줘
+
+git status 
+  현재 git repository의 상태를 보여줘
+
+브랜치(가상의 폴더, 작업을 나눠서 할 수 있다)
+  git을 설치하면 기본적으로 브랜치 한개(기본 : master브랜치)가 만들어진다
+
+git branch
+  현재 레포지토리 속 브랜치 목록을 보여줘
+
+git branch 브랜치이름
+  브랜치를 새롭게 만들어줘
+
+git checkout 이동할브랜치이름
+  브랜치 이동
+
+git merge 병합할대상브랜치이름
+  자기자신이 위치한 브랜치에다가 다른 브랜치가 병합이 된다
+
+git branch -d 브랜치이름
+  브랜치가 삭제된다
+
+                              header
+커밋1                         커밋2
+                              헤더에서 추가한 코드   
+  기본코드                      기본코드
+
+
+커밋2
+  기본코드
+  마스터브랜치에서 작성
+
+                  master
+                  병합
+                  헤더에서 추가한 코드 
+                  기본코드
+                  마스터브랜치에서 작성
+
+충돌이 발생하면 직접 충돌되는 부분의 코드를 수정한 후
+add, commit 하면 된다
+
+브랜치 이름 변경
+  git branch -m 원래이름 바꿀이름
+
+***** git add 는 뭔가를 새롭게 추가할때만 사용XXX
+      파일삭제, 코드지우기 --> 수정사항 발생
+      add는 수정 사항을 임시저장하겠다
+
+git config --global user.name "닉네임"
+git config --global user.email "github로그인이메일"
+
+git init을 해서 만든 로컬 레포지토리
+git hub에다가 원격 레포지토리를 만들기
+
+연결된 원격 저장소 확인
+  git remote -v
+
+원격저장소 추가하기
+  git remote add 원격저장소이름 원격저장소주소
+
+  ex) git remote add bbb www.dfsalsjkfds.com
+
+about.html 만들기
+  수정사항을 저장하고, 원격저장소에 업로드 하기
+
+원격저장소에 업로드하기
+  git push 원격저장소 브랜치이름
+
+  git push -u 원격저장소 브랜치이름
+    내가지금 위치한 브랜치에서 앞으로 git push 라고 하면
+    자동으로 저 원격저장소에 저 브랜츠를 업로드 해줘 라고 설정을 해준다
+
+    그러면 그 이후로는 git push 만 써도 알아서 원격저장소에 내위치브랜치가 업로드가 된다
